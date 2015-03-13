@@ -23,3 +23,5 @@ This is a simple bookmarking application created in Ruby on Rails.
 * In Show Domain all the bookmarks are listed, instead of just the ones
 	that belong to the domain.
 * Domain should destroy itself if there are no bookmarks belonging to it.
+* UI is crude at best.
+* Search is not implemented.
