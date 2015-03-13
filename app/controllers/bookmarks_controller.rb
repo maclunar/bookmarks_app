@@ -4,7 +4,11 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.all
+		if params[:tag]
+			@bookmarks = Bookmark.tagged_with(params[:tag])
+		else
+    	@bookmarks = Bookmark.all
+		end
   end
 
   # GET /bookmarks/1
@@ -71,6 +75,6 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:name, :url, :domain_id)
+      params.require(:bookmark).permit(:name, :url, :domain_id, :tag_list =>[])
     end
 end

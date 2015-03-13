@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	root	'bookmarks#index'
 	get	'bookmarks'	=> 'bookmarks#index'
 	get 'domains'		=> 'domains#index'
+	get 'tags/:tag', to: 'posts#index', as: :tag
  	
 	resources :bookmarks
   resources :domains
