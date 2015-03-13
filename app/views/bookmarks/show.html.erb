@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @bookmark.name %>
+	<strong>ID:</strong>
+	<%= @bookmark.id %>
 </p>
 
 <p>
-	<strong>ID:</strong>
-	<%= @bookmark.id %>
+  <strong>Name:</strong>
+  <%= @bookmark.name %>
 </p>
 
 <p>
@@ -27,8 +27,7 @@
 
 <p>
 	<strong>Tags:</strong>
-	<%= raw @bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-	<%= @bookmark.tag_list.each { |tag| puts "#{tag} " } %>
+	<%= @bookmark.tag_list %>
 </p>
 
 <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |
