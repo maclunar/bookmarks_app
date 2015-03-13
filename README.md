@@ -17,6 +17,9 @@ This is a simple bookmarking application created in Ruby on Rails.
 1. The domain is automaticaly extracted from a bookmark.
 1. Short links are automaticaly generated.
 
-## In progress
-* Strugling with tags. Implementation seems to be there, but the tags
-	are not showing up corrently in the Show view.
+## Issues
+* Tags. Implementation seems to be there, but the tags
+	are not showing up corrently in the Show view for Bookmarks.
+* In Show Domain all the bookmarks are listed, instead of just the ones
+	that belong to the domain.
+* Domain should destroy itself if there are no bookmarks belonging to it.
