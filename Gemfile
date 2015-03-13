@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # gem for tagging
 gem 'acts-as-taggable-on',	'~> 3.4'
+# different solution for tagging?
+gem 'acts-as-taggable-array-on'
 
 # for user authentication
 gem 'devise',		'~> 3.0.0.rc'

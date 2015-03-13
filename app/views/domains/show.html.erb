@@ -3,9 +3,29 @@
 <p>
   <strong>Domain:</strong>
   <%= @domain.domain %>
-	<br>
+</p>
+
+<p>
 	<strong>ID:</strong>
 	<%= @domain.id %>
+</p>
+
+<p>
+	<strong>Bookmarks linked to this domain</strong>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>URL</th>
+		</tr>
+		<% Bookmark.all.each do |book| %>
+			<% if book.domain_id = @domain.id %>
+				<tr>
+					<td><%= book.name %></td>
+					<td><a href="<%= book.url %>"><%= book.url %></a></td>
+				</tr>
+			<% end %>
+		<% end %>
+	</table>
 </p>
 
 <%= link_to 'Edit', edit_domain_path(@domain) %> |
