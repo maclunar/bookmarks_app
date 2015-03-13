@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :bookmarks
-
+	root	'bookmarks#index'
+	get	'bookmarks'	=> 'bookmarks#index'
+	get 'domains'		=> 'domains#index'
+ 	
+	resources :bookmarks
   resources :domains
 
   # The priority is based upon order of creation: first created -> highest priority.
