@@ -3,7 +3,11 @@
 <p>
   <strong>Domain:</strong>
   <%= @domain.domain %>
+	<br>
+	<strong>ID:</strong>
+	<%= @domain.id %>
 </p>
 
 <%= link_to 'Edit', edit_domain_path(@domain) %> |
 <%= link_to 'Back', domains_path %>
+

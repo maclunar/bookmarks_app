@@ -17,7 +17,7 @@
 
 <p>
   <strong>Domain:</strong>
-  <%= @bookmark.domain %>
+  <%= Domain.find(@bookmark.domain_id).domain %>
 </p>
 
 <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |

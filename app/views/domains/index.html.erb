@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+			<th>ID</th>
       <th>Domain</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
   <tbody>
     <% @domains.each do |domain| %>
       <tr>
+				<td><%= domain.id %></td>
         <td><%= domain.domain %></td>
         <td><%= link_to 'Show', domain %></td>
         <td><%= link_to 'Edit', edit_domain_path(domain) %></td>
