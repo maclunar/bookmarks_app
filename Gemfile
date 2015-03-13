@@ -32,6 +32,9 @@ gem 'devise',		'~> 3.0.0.rc'
 # for validating URLs
 gem "validate_url"
 
+# for short URLs
+gem 'googl'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

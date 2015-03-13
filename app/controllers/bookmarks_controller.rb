@@ -31,6 +31,7 @@ class BookmarksController < ApplicationController
 
     @bookmark = Bookmark.new(bookmark_params)
 		@bookmark.update_domain
+		@bookmark.generate_short_url
 
     respond_to do |format|
       if @bookmark.save
@@ -75,6 +76,7 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:name, :url, :domain_id, :tag_list =>[])
+      params.require(:bookmark).permit(:name, :url, :domain_id,
+										 :shortened_id, :tag_list =>[])
     end
 end
