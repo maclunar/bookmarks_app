@@ -18,7 +18,7 @@
 			<th>URL</th>
 		</tr>
 		<% Bookmark.all.each do |book| %>
-			<% if book.domain_id = @domain.id %>
+			<% if book.domain_id == @domain.id %>
 				<tr>
 					<td><%= book.name %></td>
 					<td><a href="<%= book.url %>"><%= book.url %></a></td>

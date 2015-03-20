@@ -27,7 +27,11 @@
 
 <p>
 	<strong>Tags:</strong>
-	<%= @bookmark.tag_list %>
+	<% if @bookmark.tag_list.any? %>
+		<%= @bookmark.tag_list %>
+	<% else %>
+		No tags.
+	<% end %>
 </p>
 
 <%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |

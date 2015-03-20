@@ -77,6 +77,6 @@ class BookmarksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
       params.require(:bookmark).permit(:name, :url, :domain_id,
-										 :shortened_id, :tag_list => [])
+										 :shortened_id, :tag_list)
     end
 end
