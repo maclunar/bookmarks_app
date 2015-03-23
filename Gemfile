@@ -29,13 +29,16 @@ gem 'acts-as-taggable-on',	'~> 3.4'
 gem 'acts-as-taggable-array-on'
 
 # for user authentication
-gem 'devise',		'~> 3.0.0.rc'
+gem 'devise'
 
 # for validating URLs
 gem "validate_url"
 
 # for short URLs
 gem 'googl'
+
+# simple authorisation with CanCan
+gem 'cancan'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
