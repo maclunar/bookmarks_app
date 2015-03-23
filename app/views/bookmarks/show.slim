@@ -11,6 +11,9 @@ p
     dt URL
     dd = link_to @bookmark.url, @bookmark.url
 
+    dt Domain
+    dd = Domain.find(@bookmark.domain_id).domain
+
     dt Tags
     dd
       - if @bookmark.tag_list.any?

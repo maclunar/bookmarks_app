@@ -18,3 +18,6 @@ table.table
           = link_to "Show", bookmark
           = link_to "Edit", edit_bookmark_path(bookmark)
           = link_to "Destroy", bookmark, method: :delete, data:{confirm: "Are you sure?"}
+
+.center
+  = link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"
