@@ -1,0 +1,15 @@
+header.navbar.navbar-default
+  .container-fluid
+    ul.nav.navbar-nav.navbar-left
+      li = link_to "Bookmarks", bookmarks_path
+      li = link_to "Domains",   domains_path
+    p.navbar-text.navbar-right
+      - if user_signed_in?
+        ' Signed in as
+        = current_user.email
+        '  Not you?
+        = link_to "Sign out", destroy_user_session_path, method: :delete
+      - else
+        = link_to "Sign up", new_user_registration_path
+        '  or
+        = link_to "Sign in", new_user_session_path
