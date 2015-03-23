@@ -1,33 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Domain:</strong>
-  <%= @domain.domain %>
+  <dl class="dl-horizontal">
+    <dt>ID</dt>
+    <dd><%= @domain.id %></dd>
+
+    <dt>Name</dt>
+    <dd><b><%= @domain.domain %></b></dd>
+
+    <dt>Linked bookmarks</dt>
+    <dd>
+      <% @domain.bookmarks.each do |book| %>
+        <%= link_to book , book %> 
+      <% end %>
+    </dd>
+  </dl>
 </p>
 
-<p>
-	<strong>ID:</strong>
-	<%= @domain.id %>
-</p>
 
-<p>
-	<strong>Bookmarks linked to this domain</strong>
-	<table>
-		<tr>
-			<th>Name</th>
-			<th>URL</th>
-		</tr>
-		<% Bookmark.all.each do |book| %>
-			<% if book.domain_id == @domain.id %>
-				<tr>
-					<td><%= book.name %></td>
-					<td><a href="<%= book.url %>"><%= book.url %></a></td>
-				</tr>
-			<% end %>
-		<% end %>
-	</table>
-</p>
-
-<%= link_to 'Edit', edit_domain_path(@domain) %> |
-<%= link_to 'Back', domains_path %>
+<%= link_to 'Edit', edit_domain_path(@domain), class: "btn btn-default btn-sm" %> |
+<%= link_to 'Back', domains_path, class: "btn btn-default btn-sm" %>
 

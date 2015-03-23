@@ -13,6 +13,10 @@ class Bookmark < ActiveRecord::Base
 		return parsed_url.host
 	end
 
+	def to_s
+		name
+	end
+
 	def update_domain
 		ed = extract_domain
 

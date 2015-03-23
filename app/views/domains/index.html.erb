@@ -2,7 +2,7 @@
 
 <h1>Listing Domains</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
 			<th>ID</th>
@@ -16,9 +16,13 @@
       <tr>
 				<td><%= domain.id %></td>
         <td><%= domain.domain %></td>
-        <td><%= link_to 'Show', domain %></td>
-        <td><%= link_to 'Edit', edit_domain_path(domain) %></td>
-        <td><%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <div class="btn-group" role="group">
+            <%= link_to 'Show', domain %>
+            <%= link_to 'Edit', edit_domain_path(domain) %>
+            <%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +30,6 @@
 
 <br>
 
-<%= link_to 'New Domain', new_domain_path %>
+<div class="center">
+  <%= link_to 'New Domain', new_domain_path, class: "btn btn-lg btn-default" %>
+</div>

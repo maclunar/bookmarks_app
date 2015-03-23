@@ -1,38 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-	<strong>ID:</strong>
-	<%= @bookmark.id %>
+	<dl class="dl-horizontal">
+	  <dt>ID</dt>
+	  <dd><%= @bookmark.id %></dd>
+
+	  <dt>Name</dt>
+	  <dd><b><%= @bookmark.name %></b></dd>
+
+	  <dt>URL</dt>
+	  <dd><a href="<%= @bookmark.url %>"><%= @bookmark.url %></a></dd>
+
+	  <dt>Short URL</dt>
+	  <dd><a href="<%= @bookmark.shortened_url %>"><%= @bookmark.shortened_url %></a></dd>
+
+	  <dt>Tags</dt>
+	  <dd>
+	  	<% if @bookmark.tag_list.any? %>
+				<%= @bookmark.tag_list %>
+			<% else %>
+				No tags.
+			<% end %>
+	  </dd>
+
+	  <dt></dt>
+	  <dd></dd>
+	</dl>
 </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bookmark.name %>
-</p>
 
-<p>
-  <strong>URL:</strong>
-  <a href="<%= @bookmark.url %>"><%= @bookmark.url %></a>
-</p>
-
-<p>
-  <strong>Domain:</strong>
-  <%= Domain.find(@bookmark.domain_id).domain %>
-</p>
-
-<p>
-	<strong>Short URL:</strong>
-	<a href="<%= @bookmark.shortened_url %>"><%= @bookmark.shortened_url %></a>
-</p>
-
-<p>
-	<strong>Tags:</strong>
-	<% if @bookmark.tag_list.any? %>
-		<%= @bookmark.tag_list %>
-	<% else %>
-		No tags.
-	<% end %>
-</p>
-
-<%= link_to 'Edit', edit_bookmark_path(@bookmark) %> |
-<%= link_to 'Back', bookmarks_path %>
+<%= link_to 'Edit', edit_bookmark_path(@bookmark), class: "btn btn-default btn-sm" %> |
+<%= link_to 'Back', bookmarks_path, class: "btn btn-default btn-sm" %>
