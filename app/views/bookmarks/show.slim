@@ -1,0 +1,22 @@
+p#notice = notice
+p
+  dl.dl-horizontal
+    dt ID
+    dd = @bookmark.id
+
+    dt Name
+    dd 
+      b = @bookmark.name
+
+    dt URL
+    dd = link_to @bookmark.url, @bookmark.url
+
+    dt Tags
+    dd
+      - if @bookmark.tag_list.any?
+        = @bookmark.tag_list
+      - else
+        ' No tags.
+
+= link_to 'Edit', edit_bookmark_path(@bookmark), class: "btn btn-default btn-sm"
+= link_to 'Back', bookmarks_path, class: "btn btn-default btn-sm"
