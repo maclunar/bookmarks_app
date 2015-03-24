@@ -5,8 +5,8 @@ by [**useomage**](https://github.com/useomage), formerly
 ## Intro
 This is a simple bookmarking application created in Ruby on Rails.
 
-It was created with much help from Rails scaffolding. It is being cleaned up
-and extended. New features are added daily.
+It was created with much help from Rails scaffolding.
+New features are added daily.
 
 ## Features
 
