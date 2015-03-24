@@ -14,8 +14,11 @@ p
     dt URL
     dd = link_to @bookmark.url, @bookmark.url
 
+    dt Short URL
+    dd = link_to @bookmark.shortened_url, @bookmark.shortened_url
+
     dt Domain
-    dd = Domain.find(@bookmark.domain_id).domain
+    dd = link_to Domain.find(@bookmark.domain_id).domain, Domain.find(@bookmark.domain_id)
 
     dt Tags
     dd

@@ -16,6 +16,7 @@ p
     dd
       - @domain.bookmarks.each do |book|
         = link_to book, book
+        br
 
 = link_to 'Edit', edit_domain_path(@domain), class: "btn btn-default btn-sm"
 = link_to 'Destroy', domain_path, method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-default btn-sm"
