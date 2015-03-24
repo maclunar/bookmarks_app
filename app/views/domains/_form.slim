@@ -1,0 +1,14 @@
+= form_for(@domain) do |f|
+  - if @domain.errors.any?
+    #error_explanation
+      h2 = pluralize(@domain.errors.count, "error")
+        '  prohibited this domain from being saved:
+      ul - domain.errors.full_messages.each do |message|
+        li = message
+
+  .field
+    = f.label :domain
+    br
+    = f.text_field :domain
+  .actions
+    = f.submit

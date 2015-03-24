@@ -1,0 +1,25 @@
+h2
+  ' Showing domain:
+  b = @domain.domain
+
+p#notice = notice
+
+p
+  dl.dl-horizontal
+    dt ID
+    dd = @domain.id
+
+    dt Name
+    dd = @domain.domain
+
+    dt Linked bookmarks
+    dd
+      - @domain.bookmarks.each do |book|
+        = link_to book, book
+
+= link_to 'Edit', edit_domain_path(@domain), class: "btn btn-default btn-sm"
+= link_to 'Destroy', domain_path, method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-default btn-sm"
+
+p
+  br
+  = link_to 'Back', domains_path, class: "btn btn-default btn-sm"

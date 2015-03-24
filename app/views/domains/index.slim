@@ -1,0 +1,20 @@
+p#notice = notice
+
+h1 Listing Domains
+
+table.table
+  thead
+    tr
+      th Domain
+      th Linked bookmarks
+  tbody
+    - @domains.each do |domain|
+      tr
+        td = link_to domain.domain, domain
+        td
+          - domain.bookmarks.each do |book|
+            = link_to book, book
+            '  |
+
+.center
+  = link_to 'New Domain', new_domain_path, class: "btn btn-lg btn-default"
