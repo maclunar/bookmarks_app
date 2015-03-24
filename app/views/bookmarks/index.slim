@@ -15,5 +15,6 @@ table.table
         td = link_to bookmark.shortened_url, bookmark.shortened_url
         td = link_to Domain.find(bookmark.domain_id).domain, Domain.find(bookmark.domain_id)
 
-.center
-  = link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"
+-if can? :create, Bookmark
+  .center
+    = link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"

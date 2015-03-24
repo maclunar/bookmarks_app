@@ -1,4 +1,6 @@
 class DomainsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_domain, only: [:show, :edit, :update, :destroy]
 
   # GET /domains
@@ -14,7 +16,6 @@ class DomainsController < ApplicationController
 
   # GET /domains/new
   def new
-    @domain = Domain.new
   end
 
   # GET /domains/1/edit
@@ -24,8 +25,6 @@ class DomainsController < ApplicationController
   # POST /domains
   # POST /domains.json
   def create
-    @domain = Domain.new(domain_params)
-
     respond_to do |format|
       if @domain.save
         format.html { redirect_to @domain, notice: 'Domain was successfully created.' }

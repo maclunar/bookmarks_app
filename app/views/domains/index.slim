@@ -16,5 +16,6 @@ table.table
             '  |
             = link_to book, book
 
-.center
-  = link_to 'New Domain', new_domain_path, class: "btn btn-lg btn-default"
+- if can? :create, @domain
+  .center
+    = link_to 'New Domain', new_domain_path, class: "btn btn-lg btn-default"

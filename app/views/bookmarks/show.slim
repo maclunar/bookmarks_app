@@ -27,9 +27,11 @@ p
       - else
         ' No tags.
 
-= link_to 'Edit', edit_bookmark_path(@bookmark), class: "btn btn-default btn-sm"
-= link_to 'Delete', bookmark_path, method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-default btn-sm"
+- if can? :update, @bookmark
+  = link_to 'Edit', edit_bookmark_path(@bookmark), class: "btn btn-default btn-sm"
+- if can? :destroy, @bookmark
+  = link_to 'Delete', bookmark_path, method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-default btn-sm"
 
-p
-  br
-  = link_to 'Back', bookmarks_path, class: "btn btn-default btn-sm"
+br
+br
+= link_to 'Back', bookmarks_path, class: "btn btn-default btn-sm"

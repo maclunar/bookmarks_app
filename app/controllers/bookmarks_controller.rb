@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
   # GET /bookmarks
@@ -18,18 +20,16 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks/new
   def new
-    @bookmark = Bookmark.new
   end
 
   # GET /bookmarks/1/edit
   def edit
+    authorize! :update, @bookmark
   end
 
   # POST /bookmarks
   # POST /bookmarks.json
   def create
-
-    @bookmark = Bookmark.new(bookmark_params)
 		@bookmark.update_domain
 		@bookmark.generate_short_url
 
