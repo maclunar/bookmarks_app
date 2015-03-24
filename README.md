@@ -1,5 +1,6 @@
 # Bookmarking Apllication
-by **maclunar** and **useomage**
+by [**useomage**](https://github.com/useomage), formerly
+[maclunar](https://github.com/maclunar).
 
 ## Intro
 This is a simple bookmarking application created in Ruby on Rails.
