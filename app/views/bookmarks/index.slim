@@ -1,4 +1,5 @@
 h1 Listing Bookmarks
+hr
 
 table.table
   thead
@@ -15,11 +16,12 @@ table.table
         td = link_to Domain.find(bookmark.domain_id).domain, Domain.find(bookmark.domain_id)
         td = User.find(bookmark.user_id).email
 
+hr
 -if can? :create, Bookmark
   .center
-    = link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"
-    '
-    = link_to 'New Bookmark Modal', '#', class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#addBookmarkModal" }
+    /= link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"
+
+    = link_to 'New Bookmark', '#', class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#addBookmarkModal" }
 -else
   h4.center
     = link_to "Sign in", new_user_session_path, class: "btn btn-default btn-lg"
