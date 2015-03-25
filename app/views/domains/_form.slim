@@ -1,14 +1,22 @@
-= form_for(@domain) do |f|
-  - if @domain.errors.any?
-    #error_explanation
-      h2 = pluralize(@domain.errors.count, "error")
-        '  prohibited this domain from being saved:
-      ul - domain.errors.full_messages.each do |message|
-        li = message
+/ = form_for(@domain) do |f|
+/   - if @domain.errors.any?
+/     #error_explanation
+/       h2 = pluralize(@domain.errors.count, "error")
+/         '  prohibited this domain from being saved:
+/       ul - domain.errors.full_messages.each do |message|
+/         li = message
 
-  .field
-    = f.label :domain
-    br
-    = f.text_field :domain
-  .actions
-    = f.submit
+/   .field
+/     = f.label :domain
+/     br
+/     = f.text_field :domain
+/   .actions
+/     = f.submit
+
+= simple_form_for @domain, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+  = f.error_notification
+  .form-group.col-sm-10
+    = f.input :domain, placeholder: "domain URL"
+
+  .form-group.col-sm-5.center
+    = f.button :submit
