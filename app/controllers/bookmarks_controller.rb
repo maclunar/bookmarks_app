@@ -1,7 +1,8 @@
 class BookmarksController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: [:update, :create, :new]
+  load_and_authorize_resource through: :current_user, only: [:update, :create, :new]
 
-  before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
+  # before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
   # GET /bookmarks
   # GET /bookmarks.json
@@ -30,11 +31,17 @@ class BookmarksController < ApplicationController
   # POST /bookmarks
   # POST /bookmarks.json
   def create
-		@bookmark.update_domain
-		@bookmark.generate_short_url
+    # @bookmark = current_user.bookmarks.new(bookmark_params)
 
     respond_to do |format|
       if @bookmark.save
+
+        @bookmark.update_domain
+        @bookmark.generate_short_url
+
+        # user_sign_in?
+        # current_user.bookmarks
+
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
         format.json { render :show, status: :created, location: @bookmark }
       else
@@ -76,7 +83,7 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:name, :url, :domain_id,
+      params.require(:bookmark).permit(:name, :url, :domain_id, :user_id,
 										 :shortened_id, :tag_list)
     end
 end

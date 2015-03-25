@@ -1,12 +1,13 @@
 class Bookmark < ActiveRecord::Base
   belongs_to :domain
+  belongs_to :user
 
 	acts_as_taggable
 
 	validates :name, 	presence: true
 	validates :url,		presence: true, uniqueness: true,
 										format: URI::regexp(%w(http https))
-	
+
 	# Returns a domain from the URL.
 	def extract_domain
 		parsed_url = URI.parse(url)

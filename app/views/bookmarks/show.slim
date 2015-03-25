@@ -19,6 +19,9 @@ p
     dt Domain
     dd = link_to Domain.find(@bookmark.domain_id).domain, Domain.find(@bookmark.domain_id)
 
+    dt User
+    dd = User.find(@bookmark.user_id).email
+
     dt Tags
     dd
       - if @bookmark.tag_list.any?
