@@ -1,8 +1,8 @@
 header.navbar.navbar-default
   .container-fluid
-    ul.nav.navbar-nav.navbar-left
-      li = link_to "Bookmarks", bookmarks_path
-      li = link_to "Domains",   domains_path
+    p.nav.navbar-nav.navbar-left
+      = link_to "Bookmarks", bookmarks_path, class: "btn btn-lg"
+      = link_to "Domains",   domains_path, class: "btn btn-lg"
     p.navbar-text.navbar-right
       - if user_signed_in?
         ' Signed in as
