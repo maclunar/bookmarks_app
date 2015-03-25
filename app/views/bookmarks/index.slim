@@ -6,12 +6,14 @@ table.table
       th Name
       th Short URL
       th Domain
+      th User
   tbody
     - @bookmarks.each do |bookmark|
       tr
         td = link_to bookmark.name, bookmark
         td = link_to bookmark.shortened_url, bookmark.shortened_url
         td = link_to Domain.find(bookmark.domain_id).domain, Domain.find(bookmark.domain_id)
+        td = User.find(bookmark.user_id).email
 
 -if can? :create, Bookmark
   .center
@@ -19,7 +21,7 @@ table.table
     '
     = link_to 'New Bookmark Modal', '#', class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#myModal" }
 -else
-  h3.center
+  h4.center
     = link_to "Sign in", new_user_session_path, class: "btn btn-default btn-lg"
     |  to add new bookmarks!
 

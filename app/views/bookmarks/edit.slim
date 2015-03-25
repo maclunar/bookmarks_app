@@ -1,4 +1,8 @@
-h1 Editing bookmark
+h3 Editing bookmark: <b>#{ @bookmark.name }</b>
+hr
+
 = render 'form'
+
+hr
 = link_to "Show", @bookmark, class: "btn btn-default btn-sm"
 = link_to 'Back', bookmarks_path, class: "btn btn-default btn-sm"

@@ -1,13 +1,8 @@
-= simple_form_for @bookmark, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+= simple_form_for @bookmark do |f|
   = f.error_notification
-  .form-group.col-sm-10
-    = f.input :name, placeholder: "name your bookmark"
 
-  .form-group.col-sm-10
-    = f.input :url, placeholder: "paste url here"
+  = f.input :name, placeholder: "name your bookmark"
+  = f.input :url, placeholder: "paste url here"
+  = f.input :tag_list, label: "Tags", placeholder: "insert tags (separated by commas)"
 
-  .form-group.col-sm-10
-    = f.input :tag_list, label: "Tags", placeholder: "insert tags (separated by commas)"
-
-  .form-group.col-sm-5.center
-    = f.button :submit
+  = f.button :submit
