@@ -25,7 +25,8 @@ Tags don't provide much functionality so far.
 
 ### Users
 User accounts can be created.
-Bookmarks are not yet linked to users.
+Bookmarks are now linked to users. User can see all the bookmarks, however,
+he can edit and delete only his own.
 
 ### Simple navigation
 Navigation is streamlined and minimalistic.
@@ -34,10 +35,18 @@ links and buttons throughout the application's views.
 Each name (bookmark's and domain's) is clickable and it brings the user to
 the details page.
 
+### Front-end modifications
+* Modals have been implemented to display form for adding new bookmark.
+* Simple_forms are used throughout the application to display simple but
+pretty-looking forms.
+* Bootstrap has been applied more strongly. It is used for pretty much
+everything, from fonts and buttons to modals and simple_forms integration.
+
 ## Planned features
 * Expanding the tagging functionality.
-* Linking bookmarks to users.
 * Improving domain behavior - domain should destroy itself when there are no
   more bookmarks assigned to it.
 * Implementing full text search.
 * Creating static pages for Home, Contact and About.
+* Continued work on front-end, e.g. allowing users to delete their
+bookmarks from the index view.
