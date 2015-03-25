@@ -19,14 +19,14 @@ table.table
   .center
     = link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"
     '
-    = link_to 'New Bookmark Modal', '#', class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#myModal" }
+    = link_to 'New Bookmark Modal', '#', class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#addBookmarkModal" }
 -else
   h4.center
     = link_to "Sign in", new_user_session_path, class: "btn btn-default btn-lg"
     |  to add new bookmarks!
 
 
-#myModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+#addBookmarkModal.modal.fade aria-hidden="true" aria-labelledby="addBookmarkModalLabel" role="dialog" tabindex="-1"
   .modal-dialog
     .modal-content
       .modal-header

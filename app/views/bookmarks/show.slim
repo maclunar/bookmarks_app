@@ -29,10 +29,24 @@ p
         ' No tags.
 
 - if can? :update, @bookmark
-  = link_to 'Edit', edit_bookmark_path(@bookmark), class: "btn btn-default btn-sm"
-- if can? :destroy, @bookmark
-  = link_to 'Delete', bookmark_path, method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-default btn-sm"
+  = link_to 'Edit', '#', class: "btn btn-default", data: { toggle: "modal", target: "#editBookmarkModal" }
 
-br
-br
+'
+
+- if can? :destroy, @bookmark
+  = link_to 'Delete', bookmark_path, method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-default"
+
+hr
 = link_to 'Back', bookmarks_path, class: "btn btn-default btn-sm"
+
+
+#editBookmarkModal.modal.fade aria-hidden="true" aria-labelledby="editBookmarkModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+          span.sr-only Close
+        h4#myModalLabel.modal-title Edit bookmark
+      .modal-body
+        = render 'form'

@@ -16,10 +16,24 @@ p
         br
 
 -if can? :update, @domain
-  = link_to 'Edit', edit_domain_path(@domain), class: "btn btn-default btn-sm"
+  = link_to 'Edit', '#', class: "btn btn-default", data: { toggle: "modal", target: "#editDomainModal" }
+
+'
+
 -if can? :destroy, @domain
   = link_to 'Destroy', domain_path, method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-default btn-sm"
 
-br
-br
+hr
 = link_to 'Back', domains_path, class: "btn btn-default btn-sm"
+
+
+#editDomainModal.modal.fade aria-hidden="true" aria-labelledby="editDomainModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+          span.sr-only Close
+        h4#myModalLabel.modal-title Edit domain
+      .modal-body
+        = render 'form'
