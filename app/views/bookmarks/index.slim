@@ -19,8 +19,6 @@ table.table
 hr
 -if can? :create, Bookmark
   .center
-    /= link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"
-
     = link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#ajax-modal" }
 -else
   h4.center

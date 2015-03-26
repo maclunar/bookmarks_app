@@ -5,8 +5,11 @@ class Ability
     # user ||= User.new # guest user (not logged in)
 
 
-    can :read,  Bookmark
-    can :read,    Domain
+    can :read, Bookmark
+    can :read, Domain
+
+    can :manage, Domain
+    can :create, Domain
 
 
     if user.blank?

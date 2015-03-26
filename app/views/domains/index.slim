@@ -15,6 +15,6 @@ table.table
             '  |
             = link_to book, book
 
-- if can? :create, @domain
+- if can? :create, Domain
   .center
-    = link_to 'New Domain', new_domain_path, class: "btn btn-lg btn-default"
+    = link_to 'New Domain', new_domain_path, class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#ajax-modal"  }

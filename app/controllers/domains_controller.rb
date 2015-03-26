@@ -16,10 +16,12 @@ class DomainsController < ApplicationController
 
   # GET /domains/new
   def new
+    render layout: false
   end
 
   # GET /domains/1/edit
   def edit
+    render layout: false
   end
 
   # POST /domains
