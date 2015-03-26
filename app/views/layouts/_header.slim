@@ -1,8 +1,8 @@
 header.navbar.navbar-default
   .container-fluid
     p.nav.navbar-nav.navbar-left
-      = link_to "Bookmarks", bookmarks_path, class: "btn btn-lg"
-      = link_to "Domains",   domains_path, class: "btn btn-lg"
+      = link_to "Bookmarks", bookmarks_path, class: "btn btn-lg navbar-btn"
+      = link_to "Domains",   domains_path, class: "btn btn-lg navbar-btn"
     p.navbar-text.navbar-right
       - if user_signed_in?
         ' Signed in as
@@ -10,6 +10,6 @@ header.navbar.navbar-default
         '  Not you?
         = link_to "Sign out", destroy_user_session_path, method: :delete
       - else
-        = link_to "Sign up", new_user_registration_path
-        '  or
-        = link_to "Sign in", new_user_session_path
+        = link_to "Sign up", new_user_registration_path, data: { toggle: "modal", target: "#ajax-modal" }
+        '  |
+        = link_to "Sign in", new_user_session_path, data: { toggle: "modal", target: "#ajax-modal" }
