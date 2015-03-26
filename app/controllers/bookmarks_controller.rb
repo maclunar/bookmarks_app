@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
-  load_and_authorize_resource except: [:update, :create, :new]
-  load_and_authorize_resource through: :current_user, only: [:update, :create, :new]
+  load_and_authorize_resource except: [:update, :create, :new, :edit]
+  load_and_authorize_resource through: :current_user, only: [:update, :create, :new, :edit]
 
   # before_action :set_bookmark, only: [:show, :edit, :update, :destroy]
 
@@ -21,11 +21,12 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks/new
   def new
+    render layout: false
   end
 
   # GET /bookmarks/1/edit
   def edit
-    authorize! :update, @bookmark
+    render layout: false
   end
 
   # POST /bookmarks

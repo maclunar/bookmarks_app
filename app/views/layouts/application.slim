@@ -11,3 +11,11 @@ html
       p#notice = notice
       p#alert = alert
       = yield
+
+    #ajax-modal.modal.fade role="dialog"
+      .modal-dialog
+        .modal-content
+          .modal-body
+
+    coffee:
+      Modals.init()

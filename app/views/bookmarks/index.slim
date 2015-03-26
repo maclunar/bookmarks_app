@@ -21,33 +21,8 @@ hr
   .center
     /= link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default"
 
-    = link_to 'New Bookmark', '#', class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#addBookmarkModal" }
+    = link_to 'New Bookmark', new_bookmark_path, class: "btn btn-lg btn-default", data: { toggle: "modal", target: "#ajax-modal" }
 -else
   h4.center
     = link_to "Sign in", new_user_session_path, class: "btn btn-default btn-lg"
     |  to add new bookmarks!
-
-
-#addBookmarkModal.modal.fade aria-hidden="true" aria-labelledby="addBookmarkModalLabel" role="dialog" tabindex="-1"
-  .modal-dialog
-    .modal-content
-      .modal-header
-        button.close data-dismiss="modal" type="button"
-          span aria-hidden="true"  &times;
-          span.sr-only Close
-        h4#myModalLabel.modal-title Add a bookmark
-      .modal-body
-        = simple_form_for Bookmark.new do |f|
-          = f.error_notification
-          .form-group
-            = f.input :name, placeholder: "name your bookmark"
-
-          .form-group
-            = f.input :url, placeholder: "paste url here"
-
-          .form-group
-            = f.input :tag_list, label: "Tags", placeholder: "insert tags (separated by commas)"
-
-          .modal-footer
-            button.btn.btn-default data-dismiss="modal" type="button" Close
-            = f.button :submit
