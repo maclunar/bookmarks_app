@@ -5,8 +5,7 @@ class Bookmark < ActiveRecord::Base
 	acts_as_taggable
 
 	validates :name, 	presence: true
-	validates :url,		presence: true, uniqueness: true,
-										format: URI::regexp(%w(http https))
+	validates :url,		presence: true, uniqueness: true, format: URI::regexp(%w(http https))
 
 	# Returns a domain from the URL.
 	def extract_domain
