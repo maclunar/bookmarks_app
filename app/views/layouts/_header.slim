@@ -1,8 +1,14 @@
-header.navbar.navbar-default
+header.navbar.navbar-default.navbar-static-top
   .container-fluid
-    p.nav.navbar-nav.navbar-left
-      = link_to "Bookmarks", bookmarks_path, class: "btn btn-lg navbar-btn"
-      = link_to "Domains",   domains_path, class: "btn btn-lg navbar-btn"
+    ul.nav.navbar-nav
+      li = link_to "Bookmarks", bookmarks_path, class: "btn btn-lg navbar-btn"
+      li = link_to "Domains",   domains_path, class: "btn btn-lg navbar-btn"
+
+    form.navbar-form.navbar-left role="search"
+      .form-group
+        input.form-control placeholder="Search" type="text" /
+      button.btn.btn-default type="submit"  Submit
+
     p.navbar-text.navbar-right
       - if user_signed_in?
         ' Signed in as
@@ -10,6 +16,34 @@ header.navbar.navbar-default
         '  Not you?
         = link_to "Sign out", destroy_user_session_path, method: :delete
       - else
-        = link_to "Sign up", new_user_registration_path, data: { toggle: "modal", target: "#ajax-modal" }
-        '  |
+        = link_to "Sign up", new_user_registration_path, data: { toggle: " modal", target: "#ajax-modal" }
+        ' |
         = link_to "Sign in", new_user_session_path, data: { toggle: "modal", target: "#ajax-modal" }
+
+    / ul.nav.navbar-right
+    /   - if user_signed_in?
+    /     / = current_user.email
+    /     li.btn-group
+    /       .btn-group
+    /         button.btn.btn-lg.dropdown-toggle aria-expanded="false" data-toggle="dropdown" type="button"
+    /           = current_user.email
+    /           / span.caret
+    /         ul.dropdown-menu role="menu"
+    /           li
+    /             a href="#"  Action
+    /
+    /           / li
+    /           /   a href="#"  Another action
+    /           / li
+    /           /   a href="#"  Something else here
+    /           li.divider
+    /           li
+    /             = link_to "Sign out", destroy_user_session_path, method: :delete
+    /             / a href="#"  Separated link
+    /       / ' Signed in as
+    /       / '  Not you?
+    /       / = link_to "Sign out", destroy_user_session_path, method: :delete
+    /   - else
+    /     = link_to "Sign up", new_user_registration_path, data: { toggle: "modal", target: "#ajax-modal" }
+    /     '  |
+    /     = link_to "Sign in", new_user_session_path, data: { toggle: "modal", target: "#ajax-modal" }

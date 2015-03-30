@@ -50,9 +50,11 @@ gem 'slim'
 # for nicer forms
 gem 'simple_form'
 
-
 # bootstrap for some sass.
 gem 'bootstrap-sass',	'3.2.0.0'
+
+# textacular for full-text search
+gem 'textacular'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
