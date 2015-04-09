@@ -21,12 +21,12 @@ class BookmarksController < ApplicationController
 
   # GET /bookmarks/new
   def new
-    render layout: false
+    render layout: (!request.xhr?)
   end
 
   # GET /bookmarks/1/edit
   def edit
-    render layout: false
+    render layout: (!request.xhr?)
   end
 
   # POST /bookmarks
@@ -44,10 +44,10 @@ class BookmarksController < ApplicationController
         # current_user.bookmarks
 
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
-        format.json { render :show, status: :created, location: @bookmark }
+        format.js { render nothing: true, status: :created }
       else
         format.html { render :new }
-        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+        format.js { render :new, status: :unprocessable_entity, layout: false }
       end
     end
   end
@@ -58,10 +58,10 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       if @bookmark.update(bookmark_params)
         format.html { redirect_to @bookmark, notice: 'Bookmark was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bookmark }
+        format.js { render nothing: true, status: :ok }
       else
         format.html { render :edit }
-        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+        format.js { render :edit, status: :unprocessable_entity, layout: false  }
       end
     end
   end

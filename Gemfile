@@ -57,6 +57,9 @@ gem 'bootstrap-sass',	'3.2.0.0'
 gem 'textacular'
 
 group :development, :test do
+  # RSpec for behavioral testing
+  gem 'rspec'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

@@ -1,4 +1,4 @@
-= simple_form_for @bookmark do |f|
+= simple_form_for @bookmark, remote: true, data: { success_redirect: bookmarks_path } do |f|
   = f.error_notification
 
   = f.input :name, placeholder: "name your bookmark"
@@ -7,3 +7,7 @@
 
   br
   = f.button :submit
+
+
+coffee:
+  Bookmarks.init_form()
