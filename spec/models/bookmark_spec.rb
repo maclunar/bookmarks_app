@@ -1,15 +1,8 @@
+require 'rspec/rails'
 describe Bookmark do
-  let(:book) { Bookmark.new }
+  book = FactoryGirl.build_stubbed(:bookmark)
 
-  it 'should be invalid without url' do
-    expect(book).not_to be_valid
+  it "should have a name 'Bookmark_1" do
+    expect(book.name).to eq("Bookmark_1")
   end
-
-  it 'should be invalid without a name' do
-    expect(book).not_to be_valid
-  end
-
-#  it 'should have unique url' do
-#    expect(book).to have_unique(:url)
-#  end
 end
