@@ -61,6 +61,9 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
 
+  # FactoryGirl for handling factories
+  gem 'factory_girl_rails'
+  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
