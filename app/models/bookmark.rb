@@ -30,9 +30,4 @@ class Bookmark < ActiveRecord::Base
 		surl = Googl.shorten(url, "78.10.85.139", "AIzaSyA44HqWr9nSSZARxSBsMNACobm1ntnZAuY").short_url
 		update(shortened_url: surl)
 	end
-
-	def expand_short_url
-		lurl = Googl.expand(shortened_url, "78.10.85.139", "AIzaSyA44HqWr9nSSZARxSBsMNACobm1ntnZAuY")
-	end
-
 end
