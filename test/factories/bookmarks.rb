@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :bookmark do
     sequence(:name) { |i| "Bookmark_#{i}" }
     sequence(:url) { |j| "http://example.com/site_#{j}" }
