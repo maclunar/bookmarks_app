@@ -40,12 +40,26 @@ describe Bookmark do
     expect(book.errors[:url]).to include("has already been taken")
   end
 
-  it "has a valid URL"
+  it "has a valid URL" do
+    book = Bookmark.new(
+      name: "Bob's bookmark",
+      url: "http://bob.example.com/blog/",
+    )
+    book.valid?
+    expect(book).to be_valid
+  end
 
-  it "is invalid with invalid URL"
+  it "is invalid with invalid URL" do
+    book = Bookmark.new(
+      name: "Bob's bookmark",
+      url: "invalid.url"
+    )
+    book.valid?
+    expect(book.errors[:url]).to include("is invalid") 
+  end
 
   it "can generate a shortened url" do
-    book = Bookmark.create(
+    book = Bookmark.new(
       name: "Bob's bookmark",
       url: "http://bob.example.com/blog/",
     )
@@ -54,7 +68,7 @@ describe Bookmark do
   end
 
   it "can assign itself to a domain" do
-    book = Bookmark.create(
+    book = Bookmark.new(
       name: "Bob's bookmark",
       url: "http://bob.example.com/blog/",
     )
