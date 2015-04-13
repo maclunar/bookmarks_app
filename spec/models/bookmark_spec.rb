@@ -44,4 +44,22 @@ describe Bookmark do
 
   it "is invalid with invalid URL"
 
+  it "can generate a shortened url" do
+    book = Bookmark.create(
+      name: "Bob's bookmark",
+      url: "http://bob.example.com/blog/",
+    )
+    book.generate_short_url
+    expect(book.shortened_url).not_to eq(nil)
+  end
+
+  it "can assign itself to a domain" do
+    book = Bookmark.create(
+      name: "Bob's bookmark",
+      url: "http://bob.example.com/blog/",
+    )
+    book.update_domain 
+    expect(book.domain_id).not_to eq(nil)
+  end
+
 end
