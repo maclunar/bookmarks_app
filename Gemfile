@@ -54,7 +54,10 @@ gem 'simple_form'
 gem 'bootstrap-sass',	'3.2.0.0'
 
 # textacular for full-text search
-gem 'textacular'
+#gem 'textacular'
+
+# Thinking Sphinx for full-text search
+gem 'thinking-sphinx'
 
 group :development, :test do
   # RSpec for behavioral testing
