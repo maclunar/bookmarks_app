@@ -42,7 +42,7 @@ gem "validate_url"
 gem 'googl'
 
 # simple authorisation with CanCan
-gem 'cancan'
+gem 'cancancan'
 
 # for better html.
 gem 'slim'
@@ -58,6 +58,8 @@ gem 'bootstrap-sass',	'3.2.0.0'
 
 # Thinking Sphinx for full-text search
 gem 'thinking-sphinx'
+# needed for connecting with Sphinx
+gem 'mysql2', :platform => :ruby 
 
 group :development, :test do
   # RSpec for behavioral testing

@@ -1,12 +1,10 @@
-.input-group.center
-  input.form-control placeholder=("Search...") type="text" /
-  span.input-group-btn
-    = link_to "Go!", Bookmark.advanced_search(), class: "btn btn-default"
-#    button.btn.btn-default type="button" Go!
-
-
 h1 Listing Bookmarks
 hr
+
+= form_tag bookmarks_path, method: :get do
+  .field
+    = text_field_tag :search, params[:search]
+    = submit_tag "Search", name: nil
 
 table.table
   thead

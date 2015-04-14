@@ -10,7 +10,7 @@ class BookmarksController < ApplicationController
 		if params[:tag]
 			@bookmarks = Bookmark.tagged_with(params[:tag])
 		else
-    	@bookmarks = Bookmark.all
+    	@bookmarks = Bookmark.search(params[:search])
 		end
   end
 
