@@ -6,7 +6,7 @@ FactoryGirl.define do
 
   factory :onet do
     name "Onet"
-    sequence(:url, 100) { |i| "http://wiadomosci.onet.pl/wroclaw/art_#{i}" }
+    sequence(:url, 100) { |i| "http://wiadomosci.onet.pl/wroclaw/post_#{i}" }
   end
 
 end
