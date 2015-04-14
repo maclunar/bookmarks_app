@@ -2,12 +2,13 @@ header.navbar.navbar-default.navbar-static-top
   .container-fluid
     ul.nav.navbar-nav
       li = link_to "Bookmarks", bookmarks_path, class: "btn btn-lg navbar-btn"
-      li = link_to "Domains",   domains_path, class: "btn btn-lg navbar-btn"
+      li = link_to "Domains", domains_path, class: "btn btn-lg navbar-btn"
 
     form.navbar-form.navbar-left role="search"
-      .form-group
-        input.form-control placeholder="Search" type="text" /
-      button.btn.btn-default type="submit" Submit
+      .input-group.center
+        input.form-control placeholder=("Search...") type="text" /
+        span.input-group-btn
+          button.btn.btn-default type="button"  Go!
 
     p.navbar-text.navbar-right
       - if user_signed_in?

@@ -63,7 +63,7 @@ group :development, :test do
 
   # FactoryGirl for handling factories
   gem 'factory_girl_rails'
-  
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -76,4 +76,6 @@ group :development, :test do
 
   # For simulating how user interacts with the application
   gem 'capybara'
+
+  gem 'database_cleaner'
 end

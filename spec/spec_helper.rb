@@ -1,26 +1,59 @@
-#Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-# requires all helper files within spec/support
-# ass seen in Testing with Rspec, Level 2 video
-
-require 'factory_girl'
+# This file is copied to spec/ when you run 'rails generate rspec:install'
+ENV["RAILS_ENV"] = 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+# require 'rspec/collection_matchers'
+require 'factory_girl_rails'
 require 'capybara/rspec'
+require 'database_cleaner'
+
+
+# Requires supporting ruby files with custom matchers and macros, etc,
+# in spec/support/ and its subdirectories.
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  config.expect_with :rspec do |expectations|
-    # This option will default to `true` in RSpec 4. It makes the `description`
-    # and `failure_message` of custom matchers include text for helper methods
-    # defined using `chain`, e.g.:
-    #     be_bigger_than(2).and_smaller_than(4).description
-    #     # => "be bigger than 2 and smaller than 4"
-    # ...rather than:
-    #     # => "be bigger than 2"
-    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+  config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = false
+
+  config.infer_base_class_for_anonymous_controllers = false
+
+  config.order = "random"
+
+
+  # Database cleaner
+  config.before(:suite) do
+    begin
+      DatabaseCleaner.clean_with(:truncation)
+    rescue Exception => e
+      p "*********************************************** #{e}"
+    end
   end
 
-  config.mock_with :rspec do |mocks|
-    # Prevents you from mocking or stubbing a method that does not exist on
-    # a real object. This is generally recommended, and will default to
-    # `true` in RSpec 4.
-    mocks.verify_partial_doubles = true
+  config.before(:each) do
+    DatabaseCleaner.strategy = :deletion, DB_TRUNCATION_PARMS
   end
+
+  config.before(:each) do
+    Rails.cache.clear
+    ActionMailer::Base.deliveries.clear
+    DatabaseCleaner.start
+  end
+
+  config.append_after(:each) do
+    begin
+      DatabaseCleaner.clean
+    rescue Exception => e
+      p "*********************************************** #{e}"
+    end
+  end
+
+
+  config.include FactoryGirl::Syntax::Methods
+  config.include Devise::TestHelpers, type: :controller
+
+  config.include Capybara::DSL
 end
+
+
+Capybara.default_driver = :rack_test  #:sauce
