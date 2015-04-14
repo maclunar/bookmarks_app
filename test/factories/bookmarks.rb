@@ -1,10 +1,6 @@
 FactoryGirl.define do
   factory :bookmark do
-    sequence(:name) { |i| "Bookmark_#{i}" }
-    sequence(:url) { |j| "http://example.com/site_#{j}" }
-
-    factory :bookmark_with_domain do
-      association :domain
-    end
+    name "Bob's Blog"
+    sequence(:url, 100) { |i| "http://bob.example.com/blog/post_#{i}" }
   end
 end

@@ -2,6 +2,9 @@
 # requires all helper files within spec/support
 # ass seen in Testing with Rspec, Level 2 video
 
+require 'factory_girl'
+require 'capybara/rspec'
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
