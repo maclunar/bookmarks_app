@@ -8,12 +8,6 @@ describe "the searching process" do
     end
     
     it "searches for a phrase 'onet'"
-#      visit 'root_path'
-#      page.find_by_css('.form-control type="text"')
-#      fill_in 'text', :with => 'onet'
-#      click_button 'Go!'
-#      expect(page).to have_content 'onet'
-#    end
 
     it "searches for a 'dot' sign"
 

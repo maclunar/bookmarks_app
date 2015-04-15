@@ -7,11 +7,7 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-		if params[:tag]
-			@bookmarks = Bookmark.tagged_with(params[:tag])
-		else
-    	@bookmarks = Bookmark.search(params[:search])
-		end
+    @bookmarks = Bookmark.search(params[:search])
   end
 
   # GET /bookmarks/1

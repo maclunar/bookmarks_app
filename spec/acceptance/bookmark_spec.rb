@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+# Testy z grupy acceptance z reguły są skomplikowane obliczeniowo
+
 describe "User" do
   it "logs in and views his bookmark"
 
