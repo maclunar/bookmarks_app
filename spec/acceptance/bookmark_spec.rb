@@ -24,7 +24,7 @@ feature "Visitor signs up" do
   end
 end
 
-feature "Visitor signs in and adds a bookmark" do
+feature "Visitor signs in and adds a bookmark", js: true do
   scenario "with valid name and url" do
     sign_up_with 'valid_all@example.com', 'password'
     add_bookmark 'test bookmark', 'http://test.example.com/'
@@ -51,5 +51,33 @@ feature "Visitor signs in and adds a bookmark" do
     add_bookmark 'duplicate', 'http://duplicate.example.com/'
     expect(page).to have_content("duplicate")
   end
+end
+
+feature "Visitor signs in and deletes a bookmark", js: true do
+  scenario "that was created by him" do
+    sign_up_with 'valid@example.com', 'password'
+    sleep(3)
+    add_bookmark 'bookmark', 'http://example.com/'
+    sleep(3)
+    delete_bookmark 'bookmark'
+    sleep(3)
+    expect(page).to have_content("destroyed")
+  end
+
+  scenario "that was not created by him"
+end
+
+feature "Visitor signs in and edits a bookmark" do
+  scenario "that was created by him"
+
+  scenario "that was not created by him"
+
+  scenario "and deletes the name"
+
+  scenario "and deletes the url"
+
+  scenario "and enters invalid url"
+
+  scenario "and enters a duplicate url"
 end
 

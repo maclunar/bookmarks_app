@@ -23,5 +23,14 @@ module Features
       fill_in 'Url', with: url
       click_button 'Create Bookmark'
     end
+
+    def delete_bookmark(name)
+      visit bookmarks_path
+      click_link(name)
+      sleep(3)
+      click_link_or_button 'Delete'
+      sleep(3)
+      page.driver.browser.switch_to.alert.accept
+    end
   end
 end
