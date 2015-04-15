@@ -81,6 +81,7 @@ group :development, :test do
 
   # For simulating how user interacts with the application
   gem 'capybara'
+  gem 'selenium-webdriver'
 
   gem 'database_cleaner'
 end

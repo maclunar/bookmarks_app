@@ -31,7 +31,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    DatabaseCleaner.strategy = :deletion, DB_TRUNCATION_PARMS
+    DatabaseCleaner.strategy = :deletion
   end
 
   config.before(:each) do

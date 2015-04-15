@@ -1,8 +1,32 @@
 require 'spec_helper'
 
-# Testy z grupy acceptance z reguły są skomplikowane obliczeniowo
+feature "Visitor signs up", js: true do
+  scenario "with valid email and password" do
+    sign_up_with 'valid@example.com', 'password'
+
+    expect(page).to have_content('Sign out')
+  end
+
+  scenario "with invalid email" do
+    sign_up_with 'invalid', 'password'
+
+    expect(page).to have_content('Sign in')
+  end
+
+  scenario "with blank password" do
+    sign_up_with 'valid@example.com', ''
+
+    expect(page).to have_content('Sign in')
+  end
+end
+
+
 
 describe "User" do
+  before :each do
+    sign_up_with 'bob@example.com', 'apollo11'
+  end
+
   it "logs in and views his bookmark"
 
   it "logs in and views someone else's bookmark"
@@ -26,5 +50,5 @@ describe "Guest" do
 
   it "edits a bookmark"
 
-  it "deletes a bookmakr"
+  it "deletes a bookmark"
 end
