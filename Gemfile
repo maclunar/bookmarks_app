@@ -54,12 +54,15 @@ gem 'simple_form'
 gem 'bootstrap-sass',	'3.2.0.0'
 
 # textacular for full-text search
-#gem 'textacular'
+gem 'textacular'
 
 # Thinking Sphinx for full-text search
-gem 'thinking-sphinx'
+#gem 'thinking-sphinx'
 # needed for connecting with Sphinx
-gem 'mysql2', :platform => :ruby 
+#gem 'mysql2', :platform => :ruby 
+
+# Third search option: pg_search
+#gem 'pg_search'
 
 group :development, :test do
   # RSpec for behavioral testing

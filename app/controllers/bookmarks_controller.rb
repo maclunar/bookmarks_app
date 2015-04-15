@@ -7,7 +7,11 @@ class BookmarksController < ApplicationController
   # GET /bookmarks
   # GET /bookmarks.json
   def index
-    @bookmarks = Bookmark.search(params[:search])
+    if params[:search] && params[:search] != ''
+      @bookmarks = Bookmark.advanced_search(params[:search])
+    else
+      @bookmarks = Bookmark.all
+    end
   end
 
   # GET /bookmarks/1
