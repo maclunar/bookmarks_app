@@ -15,4 +15,13 @@ module Features
       click_button 'Sign up'
     end
   end
+
+  module BookmarkHelpers
+    def add_bookmark(name, url)
+      visit new_bookmark_path
+      fill_in 'Name', with: name
+      fill_in 'Url', with: url
+      click_button 'Create Bookmark'
+    end
+  end
 end

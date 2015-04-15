@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 feature "Visitor signs up", js: true do
+
   scenario "with valid email and password" do
     sign_up_with 'valid@example.com', 'password'
 
@@ -20,35 +21,36 @@ feature "Visitor signs up", js: true do
   end
 end
 
+feature "Visitor signs in and adds a bookmar", js: true do
 
+  scenario "with valid name and url" do
+    sign_up_with 'valid_all@example.com', 'password'
 
-describe "User" do
-  before :each do
-    sign_up_with 'bob@example.com', 'apollo11'
+    add_bookmark 'test bookmark', 'http://test.example.com/'
+
+    visit bookmarks_path
+    click_link('test bookmark')
+
+    sleep(2)
+    expect(page).to have_content('http://test.example.com/')
   end
 
-  it "logs in and views his bookmark"
+  scenario "with invalid url" do
+    sign_up_with 'invalid_url@example.com', 'password'
 
-  it "logs in and views someone else's bookmark"
+    add_bookmark 'test bookmark', 'invalid.url'
 
-  it "logs in and creates a bookmark"
+    sleep(2)
+    expect(page).to have_content('is invalid')
+  end
 
-  it "logs in and edits his bookmark"
+  scenario "with blank name" do
+    sign_up_with 'blank_name@example.com', 'password'
 
-  it "logs in and edits someone else's bookmark"
+    add_bookmark '', 'http://test.example.com/'
 
-  it "logs in and deletes his bookmark"
-
-  it "logs in and deletes someone else's bookmark"
-
+    sleep(2)
+    expect(page).to have_content("can't be blank")
+  end
 end
 
-describe "Guest" do
-  it "views a bookmark"
-
-  it "creates a bookmark"
-
-  it "edits a bookmark"
-
-  it "deletes a bookmark"
-end
